@@ -1,0 +1,151 @@
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 1
+
+
+
+
+
+       MCS-51 Family Macro Assembler   A S E M - 5 1   V 1.3
+       =====================================================
+
+
+
+	Source File:	C:\Users\adlercohen\Documents\Academic\Microprocessors and Mircrocontrollers\Group Work\ASSIGNMENT_1.asm
+	Object File:	C:\Users\adlercohen\Documents\Academic\Microprocessors and Mircrocontrollers\Group Work\ASSIGNMENT_1.hex
+	List File:	C:\Users\adlercohen\Documents\Academic\Microprocessors and Mircrocontrollers\Group Work\ASSIGNMENT_1.lst
+
+
+
+ Line  I  Addr  Code            Source
+
+    1:				; Assuming the value is already in the accumulator (register A)
+    2:
+    3:	  0000	74 47		    MOV  A, #47h
+    4:	  0002	F5 F0		    MOV  B, A          ; Copy accumulator to B register for comparison
+    5:	  0004	54 00		    ANL  A, #F0h       ; Mask the upper nibble
+					     ^
+			  @@@@@ symbol not defined @@@@@
+
+    6:	  0006	C4		    SWAP A             ; Swap nibbles in A, moving the upper nibble to the lower position
+    7:	  0007	A2 00		    MOV  C, A          ; Copy the original upper nibble (now lower) to the carry
+					    ^
+			  @@@@@ illegal operand @@@@@
+
+    8:	  0009	E4		    CLR  A             ; Clear the accumulator
+    9:	  000A	55 F0		    ANL  A, B          ; Isolate the original lower nibble
+   10:	  000C	55		    SUBB A, C          ; Subtract the original upper nibble from lower nibble
+					    ^
+			  @@@@@ illegal operand @@@@@
+
+   11:	  000D	40 01		    JC   SET_CARRY     ; If borrow occurs, the upper nibble was larger, jump to set carry
+   12:	  000F	C3		    CLR  C             ; Otherwise, clear the carry
+   13:				    ;SJMP END           ; Skip the set carry instruction
+   14:
+   15:	  0010			SET_CARRY:
+   16:	  0010	D3		    SETB C             ; Set the carry flag
+   17:
+   18:				END
+   19:				    ; Rest of the program
+
+
+
+
+
+                     register banks used:  ---
+
+                     3 errors detected
+
+
+
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 2
+
+
+
+
+
+	       L I S T   O F   S Y M B O L S
+	       =============================
+
+
+SYMBOL				  TYPE     VALUE	LINE
+------------------------------------------------------------
+??ASEM_51			  NUMBER    8051
+??VERSION			  NUMBER    0130
+AC				  BIT	      D6
+ACC				  DATA	      E0
+B				  DATA	      F0
+CY				  BIT	      D7
+DPH				  DATA	      83
+DPL				  DATA	      82
+EA				  BIT	      AF
+ES				  BIT	      AC
+ET0				  BIT	      A9
+ET1				  BIT	      AB
+EX0				  BIT	      A8
+EX1				  BIT	      AA
+EXTI0				  CODE	    0003
+EXTI1				  CODE	    0013
+F0				  BIT	      D5
+IE				  DATA	      A8
+IE0				  BIT	      89
+IE1				  BIT	      8B
+INT0				  BIT	      B2
+INT1				  BIT	      B3
+IP				  DATA	      B8
+IT0				  BIT	      88
+IT1				  BIT	      8A
+OV				  BIT	      D2
+P				  BIT	      D0
+P0				  DATA	      80
+P1				  DATA	      90
+P2				  DATA	      A0
+P3				  DATA	      B0
+PCON				  DATA	      87
+PS				  BIT	      BC
+PSW				  DATA	      D0
+PT0				  BIT	      B9
+PT1				  BIT	      BB
+PX0				  BIT	      B8
+PX1				  BIT	      BA
+RB8				  BIT	      9A
+RD				  BIT	      B7
+REN				  BIT	      9C
+RESET				  CODE	    0000
+RI				  BIT	      98
+RS0				  BIT	      D3
+RS1				  BIT	      D4
+RXD				  BIT	      B0
+SBUF				  DATA	      99
+SCON				  DATA	      98
+SET_CARRY			  CODE	    0010	  15
+SINT				  CODE	    0023
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 3
+
+
+
+SYMBOL				  TYPE     VALUE	LINE
+------------------------------------------------------------
+SM0				  BIT	      9F
+SM1				  BIT	      9E
+SM2				  BIT	      9D
+SP				  DATA	      81
+T0				  BIT	      B4
+T1				  BIT	      B5
+TB8				  BIT	      9B
+TCON				  DATA	      88
+TF0				  BIT	      8D
+TF1				  BIT	      8F
+TH0				  DATA	      8C
+TH1				  DATA	      8D
+TI				  BIT	      99
+TIMER0				  CODE	    000B
+TIMER1				  CODE	    001B
+TL0				  DATA	      8A
+TL1				  DATA	      8B
+TMOD				  DATA	      89
+TR0				  BIT	      8C
+TR1				  BIT	      8E
+TXD				  BIT	      B1
+WR				  BIT	      B6

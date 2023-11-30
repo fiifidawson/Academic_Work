@@ -1,0 +1,10 @@
+ORG 000H
+AJUMP Start
+ORG 30H
+
+Start:	Setb p0.0
+	pat: MOV c,p1.1
+	JC Start
+	CLR P0.0
+	AJUMP pat
+	END

@@ -1,0 +1,9 @@
+	org 000h ;Starting at address 0000h
+	ajmp start
+	org 30h
+start:
+	MOV  A, R6     
+	SWAP A        
+	CPL  A        
+	XCHD A, R5
+	end

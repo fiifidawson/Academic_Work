@@ -1,0 +1,5 @@
+MOV A, #00h 
+CLR P0.0  
+CLR P0.1
+CLR P0.2
+CLR P0.3

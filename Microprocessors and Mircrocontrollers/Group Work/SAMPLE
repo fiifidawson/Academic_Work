@@ -1,0 +1,54 @@
+ORG 000H
+AJMP Start
+ORG 30H
+
+Start:  
+    CLR P0.0   ; Turn off all LEDs initially
+    CLR P0.1
+    CLR P0.2
+    CLR P0.3
+    MOV P1, #0FFH ; Configure P1 as input (assuming switch is connected here)
+    ACALL Debounce ; Call the debounce routine before checking the switch
+    JB P1.0, CheckLED ; Jump if switch is pressed
+    SJMP Start
+
+CheckLED:
+    JB P0.0, Next1 ; If P0.0 is on, go to Next1
+    JB P0.1, Next2 ; If P0.1 is on, go to Next2
+    JB P0.2, Next3 ; If P0.2 is on, go to Next3
+    ; If none are on, or P0.3 is on, start from first LED
+    SETB P0.0 ; Turn on first LED
+    SJMP Delay
+
+Next1:
+    CLR P0.0 ; Turn off first LED
+    SETB P0.1 ; Turn on second LED
+    SJMP Delay
+
+Next2:
+    CLR P0.1 ; Turn off second LED
+    SETB P0.2 ; Turn on third LED
+    SJMP Delay
+
+Next3:
+    CLR P0.2 ; Turn off third LED
+    SETB P0.3 ; Turn on fourth LED
+    SJMP Delay
+
+Next4:
+    CLR P0.3 ; Turn off fourth LED
+    SJMP Start ; Restart the cycle
+
+Delay: 
+    ; Simple delay for debouncing/stabilization
+    MOV R2, #255
+DelayLoop:
+    DJNZ R2, DelayLoop
+    SJMP Start
+
+Debounce:
+    ; Add debounce logic here
+    ; ...
+    RET
+
+END
