@@ -1,0 +1,230 @@
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 1
+
+
+
+
+
+       MCS-51 Family Macro Assembler   A S E M - 5 1   V 1.3
+       =====================================================
+
+
+
+	Source File:	C:\Users\adlercohen\Documents\Academic\Embedded_Systems\Practice\Assignment_Practice_2.asm
+	Object File:	C:\Users\adlercohen\Documents\Academic\Embedded_Systems\Practice\Assignment_Practice_2.hex
+	List File:	C:\Users\adlercohen\Documents\Academic\Embedded_Systems\Practice\Assignment_Practice_2.lst
+
+
+
+ Line  I  Addr  Code            Source
+
+    1:				;;OP Jump Page 99
+    2:
+    3:				; Q1
+    4:				;	MOV R3, #0D5h
+    5:				; 	MOV A, R3
+    6:				;LOOP:   INC R3
+    7:				;        MOV A, R3
+    8:				;	CJNE A, #0E1h, LOOP
+    9:				;        END
+   10:
+   11:				; Q3
+   12:				;	MOV R4, #0F1h
+   13:				; 	MOV A, R4
+   14:				;LOOP:   DEC R4
+   15:				;        MOV A, R4
+   16:				;        CJNE A, #0E1h, LOOP
+   17:				;        END
+   18:
+   19:				;Q5s
+   20:				;    MOV R6, R0    ; Assume R0 is the largest first
+   21:				;    MOV A, R1     ; Load R1 to A for comparison
+   22:				;    CJNE A, R6, NEXT1 ; If A != R6 and A < R6, skip the update
+   23:				;    MOV R6, A     ; Update R6 with A's value if A > R6
+   24:				;NEXT1:
+   25:				;    MOV A, R2     ; Load R2 to A for comparison
+   26:				;    CJNE A, R6, NEXT2 ; If A != R6 and A < R6, skip the update
+   27:				;    MOV R6, A     ; Update R6 with A's value if A > R6
+   28:				;NEXT2:
+   29:				;    MOV A, R3     ; Load R3 to A for comparison
+   30:				;    CJNE A, R6, NEXT3 ; If A != R6 and A < R6, skip the update
+   31:				;    MOV R6, A     ; Update R6 with A's value if A > R6
+   32:				;NEXT3:
+   33:				;    MOV A, R4     ; Load R4 to A for comparison
+   34:				;    CJNE A, R6, DONE ; If A != R6 and A < R6, skip the update
+   35:				;    MOV R6, A     ; Update R6 with A's value if A > R6
+   36:				;DONE:
+   37:				;    END
+   38:
+   39:
+   40:				;Q8
+   41:				;	MOV B, #0FFH
+   42:				;	MOV R0, #00H    ; Initialize the counter to 0
+   43:				;	MOV A, B         ; Move the value of B into accumulator A for processing
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 2
+
+
+
+ Line  I  Addr  Code            Source
+
+   44:				;	MOV R1, #8       ; Initialize a loop counter to 8 for 8 bits
+   45:				;COUNT_LOOP:
+   46:				;	RLC A            ; Rotate left through carry. The MSB of A goes into the carry flag.
+   47:				;	JNC NO_INCREMENT ; If the carry flag is not set (bit was 0), no need to increment R5
+   48:				;	INC R0           ; If the carry flag is set (bit was 1), increment the count
+   49:				;NO_INCREMENT:
+   50:				;    	DJNZ R1, COUNT_LOOP ; Decrement the loop counter and repeat if not 0
+   51:				;	END
+   52:
+   53:
+   54:				;Q13
+   55:				;	MOV R4,#0FFh   ;you can store any number u like
+   56:				;	MOV R5,#0FFh
+   57:				;main:
+   58:				;         DJNZ R4,main
+   59:				;         DJNZ R5,end1    ;There is a specific reason for placing it here *
+   60:				;         DEC R5
+   61:				;         MOV R4,#0FFh
+   62:				;         SJMP main
+   63:				;end1:    NOP
+   64:				;	END
+   65:
+   66:				;Q17
+   67:				;    	MOV R0, #00H         ; Initialize R0 with 0
+   68:				;	ACALL INCREMENT_R0    ; Call the subroutine to increment R0
+   69:				;	MOV A, SP            ; Get current stack pointer value
+   70:				;    	ADD A, #-1           ; Adjust stack pointer back by 1 (hypothetical)
+   71:				;    	MOV SP, A            ; Update stack pointer
+   72:				; 	SJMP $                ; Infinite loop to stop further execution
+   73:
+   74:				;INCREMENT_R0:             ; Subroutine label
+   75:				;    	INC R0                ; Increment R0 by 1
+   76:				;    	PUSH ACC            ; Push accumulator onto stack (example)
+   77:				;    	RET                   ; Return from subroutine
+   78:				;	END                   ; End of assembly file
+   79:
+   80:				;Q19
+   81:	  0000	90 01 00		MOV DPTR,#100H
+   82:	  0003	74 AA			MOV A,#0AAH
+   83:	  0005	7D FF			MOV R5,#0FFH
+   84:	  0007	F0		AGAIN:	MOVX @DPTR,A
+   85:	  0008	A3			INC DPTR
+   86:	  0009	1D			DEC R5
+   87:	  000A	BD FE FA		CJNE R5,#0FEH,AGAIN
+   88:	  000D	F0			MOVX @DPTR,A
+   89:	  000E	80 FE		   	SJMP $
+   90:				   	END
+   91:
+   92:
+   93:
+   94:
+   95:
+
+
+
+
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 3
+
+
+
+
+                     register banks used:  ---
+
+                     no errors
+
+
+
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 4
+
+
+
+
+
+	       L I S T   O F   S Y M B O L S
+	       =============================
+
+
+SYMBOL				  TYPE     VALUE	LINE
+------------------------------------------------------------
+??ASEM_51			  NUMBER    8051
+??VERSION			  NUMBER    0130
+AC				  BIT	      D6
+ACC				  DATA	      E0
+AGAIN				  CODE	    0007	  84
+B				  DATA	      F0
+CY				  BIT	      D7
+DPH				  DATA	      83
+DPL				  DATA	      82
+EA				  BIT	      AF
+ES				  BIT	      AC
+ET0				  BIT	      A9
+ET1				  BIT	      AB
+EX0				  BIT	      A8
+EX1				  BIT	      AA
+EXTI0				  CODE	    0003
+EXTI1				  CODE	    0013
+F0				  BIT	      D5
+IE				  DATA	      A8
+IE0				  BIT	      89
+IE1				  BIT	      8B
+INT0				  BIT	      B2
+INT1				  BIT	      B3
+IP				  DATA	      B8
+IT0				  BIT	      88
+IT1				  BIT	      8A
+OV				  BIT	      D2
+P				  BIT	      D0
+P0				  DATA	      80
+P1				  DATA	      90
+P2				  DATA	      A0
+P3				  DATA	      B0
+PCON				  DATA	      87
+PS				  BIT	      BC
+PSW				  DATA	      D0
+PT0				  BIT	      B9
+PT1				  BIT	      BB
+PX0				  BIT	      B8
+PX1				  BIT	      BA
+RB8				  BIT	      9A
+RD				  BIT	      B7
+REN				  BIT	      9C
+RESET				  CODE	    0000
+RI				  BIT	      98
+RS0				  BIT	      D3
+RS1				  BIT	      D4
+RXD				  BIT	      B0
+SBUF				  DATA	      99
+SCON				  DATA	      98
+SINT				  CODE	    0023
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 5
+
+
+
+SYMBOL				  TYPE     VALUE	LINE
+------------------------------------------------------------
+SM0				  BIT	      9F
+SM1				  BIT	      9E
+SM2				  BIT	      9D
+SP				  DATA	      81
+T0				  BIT	      B4
+T1				  BIT	      B5
+TB8				  BIT	      9B
+TCON				  DATA	      88
+TF0				  BIT	      8D
+TF1				  BIT	      8F
+TH0				  DATA	      8C
+TH1				  DATA	      8D
+TI				  BIT	      99
+TIMER0				  CODE	    000B
+TIMER1				  CODE	    001B
+TL0				  DATA	      8A
+TL1				  DATA	      8B
+TMOD				  DATA	      89
+TR0				  BIT	      8C
+TR1				  BIT	      8E
+TXD				  BIT	      B1
+WR				  BIT	      B6

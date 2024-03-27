@@ -1,0 +1,154 @@
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 1
+
+
+
+
+
+       MCS-51 Family Macro Assembler   A S E M - 5 1   V 1.3
+       =====================================================
+
+
+
+	Source File:	C:\Users\adlercohen\Documents\Academic\Embedded_Systems\GW_2.asm
+	Object File:	C:\Users\adlercohen\Documents\Academic\Embedded_Systems\GW_2.hex
+	List File:	C:\Users\adlercohen\Documents\Academic\Embedded_Systems\GW_2.lst
+
+
+
+ Line  I  Addr  Code            Source
+
+    1:		N      0000		ORG 00H
+    2:	  0000	80 1E			SJMP START
+    3:		N      0020		ORG 20H
+    4:	  0020			START:
+    5:	  0020	C2 A0			CLR P2.0
+    6:	  0022	C2 A1		BACK:   CLR P2.1
+    7:	  0024	C2 A2			CLR P2.2
+    8:	  0026	C2 A3			CLR P2.3
+    9:					;CLR P1.0
+   10:	  0028	A2 90		REPEAT:	MOV C, P1.0
+   11:	  002A	40 F6			JC BACK
+   12:	  002C	D2 A0			SETB P2.0
+   13:	  002E	11 3A			ACALL DELAY
+   14:	  0030	D2 A1			SETB P2.1
+   15:	  0032	11 3A			ACALL DELAY
+   16:	  0034	D2 A2			SETB P2.2
+   17:	  0036	11 3A			ACALL DELAY
+   18:	  0038	01 28			AJMP REPEAT
+   19:	  003A	78 0A		DELAY:	MOV R0, #0AH
+   20:	  003C	79 02		PAN:	MOV R1, #02H
+   21:	  003E	7A 02		DAT:	MOV R2, #02H
+   22:	  0040	DA FE			DJNZ R2, $
+   23:	  0042	D9 FA			DJNZ R1, DAT
+   24:	  0044	D8 F6			DJNZ R0, PAN
+   25:	  0046	22			RET
+   26:					END
+
+
+
+
+
+                     register banks used:  ---
+
+                     no errors
+
+
+
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 2
+
+
+
+
+
+	       L I S T   O F   S Y M B O L S
+	       =============================
+
+
+SYMBOL				  TYPE     VALUE	LINE
+------------------------------------------------------------
+??ASEM_51			  NUMBER    8051
+??VERSION			  NUMBER    0130
+AC				  BIT	      D6
+ACC				  DATA	      E0
+B				  DATA	      F0
+BACK				  CODE	    0022	   6
+CY				  BIT	      D7
+DAT				  CODE	    003E	  21
+DELAY				  CODE	    003A	  19
+DPH				  DATA	      83
+DPL				  DATA	      82
+EA				  BIT	      AF
+ES				  BIT	      AC
+ET0				  BIT	      A9
+ET1				  BIT	      AB
+EX0				  BIT	      A8
+EX1				  BIT	      AA
+EXTI0				  CODE	    0003
+EXTI1				  CODE	    0013
+F0				  BIT	      D5
+IE				  DATA	      A8
+IE0				  BIT	      89
+IE1				  BIT	      8B
+INT0				  BIT	      B2
+INT1				  BIT	      B3
+IP				  DATA	      B8
+IT0				  BIT	      88
+IT1				  BIT	      8A
+OV				  BIT	      D2
+P				  BIT	      D0
+P0				  DATA	      80
+P1				  DATA	      90
+P2				  DATA	      A0
+P3				  DATA	      B0
+PAN				  CODE	    003C	  20
+PCON				  DATA	      87
+PS				  BIT	      BC
+PSW				  DATA	      D0
+PT0				  BIT	      B9
+PT1				  BIT	      BB
+PX0				  BIT	      B8
+PX1				  BIT	      BA
+RB8				  BIT	      9A
+RD				  BIT	      B7
+REN				  BIT	      9C
+REPEAT				  CODE	    0028	  10
+RESET				  CODE	    0000
+RI				  BIT	      98
+RS0				  BIT	      D3
+RS1				  BIT	      D4
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 3
+
+
+
+SYMBOL				  TYPE     VALUE	LINE
+------------------------------------------------------------
+RXD				  BIT	      B0
+SBUF				  DATA	      99
+SCON				  DATA	      98
+SINT				  CODE	    0023
+SM0				  BIT	      9F
+SM1				  BIT	      9E
+SM2				  BIT	      9D
+SP				  DATA	      81
+START				  CODE	    0020	   4
+T0				  BIT	      B4
+T1				  BIT	      B5
+TB8				  BIT	      9B
+TCON				  DATA	      88
+TF0				  BIT	      8D
+TF1				  BIT	      8F
+TH0				  DATA	      8C
+TH1				  DATA	      8D
+TI				  BIT	      99
+TIMER0				  CODE	    000B
+TIMER1				  CODE	    001B
+TL0				  DATA	      8A
+TL1				  DATA	      8B
+TMOD				  DATA	      89
+TR0				  BIT	      8C
+TR1				  BIT	      8E
+TXD				  BIT	      B1
+WR				  BIT	      B6
