@@ -1,0 +1,11 @@
+	ORG 0000H
+	SJMP START
+	ORG 20h
+
+START:	CLR C
+	MOV C, P1.0
+	
+loop: CPL, P0.1
+	JB C, loop
+	CLR C
+	END

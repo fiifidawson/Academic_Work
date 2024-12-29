@@ -1,0 +1,28 @@
+SWITCH  EQU P1.0   ; Switch is connected to P1.0
+LED     EQU P0.0   ; LED is connected to P2.0
+
+; Define bit addresses
+SWITCH_BIT  EQU 0  ; Bit address for switch
+LED_BIT     EQU 0  ; Bit address for LED
+
+; Reset vector
+ORG 0000H
+    LJMP MAIN
+
+; Main program
+MAIN:
+    CLR LED             ; Initialize LED to OFF
+    SETB SWITCH         ; Enable internal pull-up for switch
+
+LOOP:
+    JB SWITCH, LOOP     ; Wait for switch release
+    CPL LED             ; Toggle LED state
+    JNB LED, LOOP       ; If LED is OFF, loop back
+    ACALL DELAY         ; Delay to debounce switch
+    JMP LOOP
+
+DELAY:
+    MOV R7, #100        ; Delay loop counter
+DELAY_LOOP:
+    DJNZ R7, DELAY_LOOP ; Decrement counter and loop
+    RET                 ; Return from delay subroutine
