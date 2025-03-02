@@ -1,0 +1,3 @@
+C:/Users/adlercohen/DevAdler/ACity/Data_Structures_and_Algorithms/DSA/cmake-build-debug/CMakeFiles/DSA.dir
+C:/Users/adlercohen/DevAdler/ACity/Data_Structures_and_Algorithms/DSA/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/adlercohen/DevAdler/ACity/Data_Structures_and_Algorithms/DSA/cmake-build-debug/CMakeFiles/rebuild_cache.dir

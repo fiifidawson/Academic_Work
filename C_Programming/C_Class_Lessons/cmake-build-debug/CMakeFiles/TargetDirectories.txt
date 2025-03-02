@@ -1,0 +1,3 @@
+C:/Users/adlercohen/DevAdler/ACity/C_Programming/C_Class_Lessons/cmake-build-debug/CMakeFiles/ACITY_C.dir
+C:/Users/adlercohen/DevAdler/ACity/C_Programming/C_Class_Lessons/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/adlercohen/DevAdler/ACity/C_Programming/C_Class_Lessons/cmake-build-debug/CMakeFiles/rebuild_cache.dir

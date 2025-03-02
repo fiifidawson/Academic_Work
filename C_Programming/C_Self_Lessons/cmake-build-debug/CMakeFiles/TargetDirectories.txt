@@ -1,0 +1,3 @@
+C:/Users/adlercohen/DevAdler/C_PROGRAMMING/C_LESSONS/cmake-build-debug/CMakeFiles/C_LESSONS.dir
+C:/Users/adlercohen/DevAdler/C_PROGRAMMING/C_LESSONS/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/adlercohen/DevAdler/C_PROGRAMMING/C_LESSONS/cmake-build-debug/CMakeFiles/rebuild_cache.dir

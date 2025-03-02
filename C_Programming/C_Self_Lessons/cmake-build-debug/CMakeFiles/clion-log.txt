@@ -1,0 +1,5 @@
+"C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.1/bin/ninja/win/ninja.exe" -G Ninja -S C:\Users\adlercohen\DevAdler\C_PROGRAMMING\C_LESSONS -B C:\Users\adlercohen\DevAdler\C_PROGRAMMING\C_LESSONS\cmake-build-debug
+-- Configuring done
+CMake Error: CMake can not determine linker language for target: C_LESSONS
+-- Generating done
+CMake Generate step failed.  Build files cannot be regenerated correctly.
