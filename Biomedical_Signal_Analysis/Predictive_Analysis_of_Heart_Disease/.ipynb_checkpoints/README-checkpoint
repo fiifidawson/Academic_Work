@@ -1,0 +1,59 @@
+# Biomedical Signal Analysis Lab Session
+
+## Information about the Dataset
+
+The dataset consists of **14 attributes**:
+
+1. **Age**: The age of the patient.
+2. **Sex**: Gender of the patient (1 = male; 0 = female).
+3. **Chest Pain Type (cp)**: 
+   - 1: typical angina
+   - 2: atypical angina
+   - 3: non-anginal pain
+   - 4: asymptomatic
+4. **Resting Blood Pressure (trestbps)**: Measured in mm Hg, normal values are between 90/60 mmHg and 120/80 mmHg.
+5. **Serum Cholesterol (chol)**: Measured in mg/dl.
+6. **Fasting Blood Sugar (fbs)**: (1 = true; 0 = false) Whether the fasting blood sugar > 120 mg/dl.
+7. **Resting Electrocardiographic Results (restecg)**:
+   - 0: normal
+   - 1: having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV)
+   - 2: showing probable or definite left ventricular hypertrophy by Estes' criteria.
+8. **Maximum Heart Rate Achieved (thalach)**: The maximum heart rate, calculated by subtracting the patient's age from 220. For example, for a 50-year-old, the max heart rate is 170 beats per minute.
+9. **Exercise-Induced Angina (exang)**: (1 = yes; 0 = no).
+10. **Oldpeak**: ST depression induced by exercise relative to rest.
+11. **Slope of the Peak Exercise ST Segment (slope)**: 
+    - 1: upsloping
+    - 2: flat
+    - 3: downsloping
+12. **Number of Major Vessels (ca)**: Ranges from 0 to 3, colored by fluoroscopy.
+13. **Thalassemia (thal)**: 
+    - 3 = normal
+    - 6 = fixed defect
+    - 7 = reversible defect
+14. **Heart Disease (target)**: The main target variable, indicating whether a patient has heart disease (1 = yes; 0 = no).
+
+## Objectives for the Lab Session
+
+- The primary task is to **predict** whether a patient has heart disease based on the above attributes.
+  
+## Key Clinical Insights
+
+1. **Exercise-Induced ST Segment Depression**:
+   - A reliable ECG finding for diagnosing obstructive coronary atherosclerosis.
+   - Associated with a worse prognosis for patients with coronary artery disease (CAD).
+
+2. **Thalassemia**:
+   - An inherited blood disorder causing reduced hemoglobin levels, leading to anemia and fatigue.
+   - Mild forms of thalassemia may not require treatment.
+
+3. **Resting Blood Pressure**:
+   - Normal range: 90/60 mmHg to 120/80 mmHg.
+
+4. **Maximum Heart Rate**:
+   - Calculated as 220 minus the patient's age.
+
+## Lab Exercise
+
+- **Explore the Data**: Analyze each attribute to understand its significance in predicting heart disease.
+- **Predictive Modeling**: Use machine learning algorithms to predict whether a patient has heart disease based on the dataset attributes.
+
